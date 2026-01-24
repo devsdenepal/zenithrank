@@ -137,40 +137,59 @@ export default function Page() {
       {/* Main Workspace */}
       <div className="flex-1 flex min-h-0 overflow-hidden relative">
         {/* Feedback Overlay */}
-        {feedback && (
-          <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/60 dark:bg-background-dark/60 backdrop-blur-sm transition-all">
-            <div className={`max-w-md w-full mx-4 p-8 rounded-2xl shadow-2xl border ${feedback.type === "success"
-                ? "bg-white dark:bg-gray-800 border-green-100 dark:border-green-900/30"
-                : "bg-white dark:bg-gray-800 border-red-100 dark:border-red-900/30"
-              }`}>
-              <div className="flex flex-col items-center text-center">
-                <div className={`size-16 rounded-full flex items-center justify-center mb-4 ${feedback.type === "success" ? "bg-green-100 text-green-600" : "bg-red-100 text-red-600"
-                  }`}>
-                  {feedback.type === "success" ? <CheckCircle className="size-8" /> : <AlertCircle className="size-8" />}
-                </div>
-                <h3 className="text-xl font-bold text-[#111418] dark:text-white mb-2">{feedback.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-8">{feedback.message}</p>
+    {feedback && (
+  <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40 backdrop-blur-sm">
+    <div
+      className={`relative max-w-md w-full mx-4 p-8 rounded-2xl shadow-2xl border animate-scale-in ${
+        feedback.type === "success"
+          ? "bg-white dark:bg-gray-800 border-green-200 dark:border-green-900/40"
+          : "bg-white dark:bg-gray-800 border-red-200 dark:border-red-900/40"
+      }`}
+    >
+      <div className="flex flex-col items-center text-center">
+        <div
+          className={`size-16 rounded-full flex items-center justify-center mb-4 ${
+            feedback.type === "success"
+              ? "bg-green-100 text-green-600"
+              : "bg-red-100 text-red-600"
+          }`}
+        >
+          {feedback.type === "success" ? (
+            <CheckCircle className="size-8" />
+          ) : (
+            <AlertCircle className="size-8" />
+          )}
+        </div>
 
-                {feedback.type === "success" ? (
-                  <button
-                    onClick={handleNextLesson}
-                    className="w-full py-4 bg-primary text-white rounded-xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2"
-                  >
-                    <span>Continue to Next Lesson</span>
-                    <ArrowRight className="size-5" />
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => setFeedback(null)}
-                    className="w-full py-4 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-xl font-bold hover:bg-gray-200 transition-all"
-                  >
-                    Got it
-                  </button>
-                )}
-              </div>
-            </div>
-          </div>
+        <h3 className="text-xl font-bold text-[#111418] dark:text-white mb-2">
+          {feedback.title}
+        </h3>
+
+        <p className="text-gray-600 dark:text-gray-400 mb-8">
+          {feedback.message}
+        </p>
+
+        {feedback.type === "success" ? (
+          <button
+            onClick={handleNextLesson}
+            className="w-full py-4 bg-primary text-white rounded-xl font-bold shadow-lg shadow-primary/30 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2"
+          >
+            <span>Continue to Next Lesson</span>
+            <ArrowRight className="size-5" />
+          </button>
+        ) : (
+          <button
+            onClick={() => setFeedback(null)}
+            className="w-full py-4 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-xl font-bold hover:bg-gray-200 dark:hover:bg-gray-600 transition-all"
+          >
+            Got it
+          </button>
         )}
+      </div>
+    </div>
+  </div>
+)}
+
 
         {/* Code Editor Pane */}
 

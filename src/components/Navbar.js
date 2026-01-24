@@ -10,7 +10,7 @@ export default function Navbar() {
         <div className="text-primary flex items-center justify-center">
           <Terminal className="size-6" />
         </div>
-        <h2 className="text-lg font-bold text-[#111418] dark:text-white">SEO Sandbox</h2>
+        <h2 className="text-lg font-bold text-[#111418] dark:text-white">ZenithRank SEO Sandbox</h2>
       </div>
       <div className="flex items-center gap-6">
         <nav className="hidden md:flex items-center gap-8">

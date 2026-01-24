@@ -1,0 +1,42 @@
+[
+    {
+        "id": "lesson-1",
+        "title": "The Power of the H1",
+        "description": "Learn why every page needs exactly one primary heading for search engines to understand your content hierarchy.",
+        "requiredRules": [
+            "h1"
+        ],
+        "completionMode": "strict",
+        "order": 1,
+        "nextLessonId": "lesson-2",
+        "initialHtml": "<!DOCTYPE html>\n<html>\n<body>\n  <!-- Add your H1 tag here -->\n</body>\n</html>"
+    },
+    {
+        "id": "lesson-2",
+        "title": "Mastering Meta Descriptions",
+        "description": "Meta descriptions are the 'sales pitch' for your page in search results. Let's add one to your head section.",
+        "requiredRules": [
+            "h1",
+            "meta"
+        ],
+        "completionMode": "strict",
+        "order": 2,
+        "nextLessonId": "lesson-3",
+        "initialHtml": "<!DOCTYPE html>\n<html>\n<head>\n  <title>EcoGarden | Pure Life</title>\n</head>\n<body>\n  <h1>Welcome to EcoGarden</h1>\n</body>\n</html>"
+    },
+    {
+        "id": "lesson-3",
+        "title": "Visual SEO: Image Alts",
+        "description": "Search engines can't 'see' images yet. Using alt text helps them understand your visuals and improves accessibility.",
+        "requiredRules": [
+            "h1",
+            "meta",
+            "alt"
+        ],
+        "completionMode": "threshold",
+        "completionThreshold": 100,
+        "order": 3,
+        "nextLessonId": null,
+        "initialHtml": "<!DOCTYPE html>\n<html>\n<head>\n  <title>EcoGarden</title>\n  <meta name=\"description\" content=\"Organic gardening supplies for urban dwellers.\">\n</head>\n<body>\n  <h1>EcoGarden Shop</h1>\n  <img src=\"https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400\" />\n</body>\n</html>"
+    }
+]

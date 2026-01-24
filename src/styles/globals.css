@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+
+  --font-sans: "Lexend", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --color-primary: #4f46e5;
+  --color-background-light: #ffffff;
+  --color-background-dark: #1a1a1a;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #dbe0e6;
+  border-radius: 10px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #374151;
+}
+
+@utility fill-1 {
+  font-variation-settings: 'FILL' 1;
+}

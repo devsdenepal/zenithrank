@@ -26,6 +26,11 @@ export const SEOProvider = ({ children }) => {
         alt: { title: "Alt Text", desc: "All <img> tags must have descriptive alt attributes.", type: "pending" },
         canonical: { title: "Canonical URL", desc: "A <link rel=\"canonical\"> should point to the preferred URL.", type: "pending" },
         viewport: { title: "Viewport Meta", desc: "A viewport meta tag is required for mobile friendliness.", type: "pending" },
+        og_title: { title: "OG Title", desc: "Social preview title: meta[property=\"og:title\"]", type: "pending" },
+        og_description: { title: "OG Description", desc: "Social preview description: meta[property=\"og:description\"]", type: "pending" },
+        og_image: { title: "OG Image", desc: "Social preview image: meta[property=\"og:image\"]", type: "pending" },
+        schema: { title: "JSON-LD Schema", desc: "Structured data script type=\"application/ld+json\" should be present and valid.", type: "pending" },
+        robots: { title: "Robots Meta", desc: "Checks for presence of meta[name=\"robots\"] and indexing directives.", type: "pending" },
     });
 
     const validate = useCallback((content) => {
@@ -97,6 +102,55 @@ export const SEOProvider = ({ children }) => {
                 results.viewport = { ...results.viewport, type: "completed", desc: "Viewport meta tag present." };
             } else {
                 results.viewport = { ...results.viewport, type: "active", desc: "Missing <meta name=\"viewport\"> for mobile support." };
+            }
+
+            // 7. Open Graph (og:title, og:description, og:image)
+            const ogTitle = head ? head.querySelector('meta[property="og:title"]') : null;
+            const ogDesc = head ? head.querySelector('meta[property="og:description"]') : null;
+            const ogImage = head ? head.querySelector('meta[property="og:image"]') : null;
+
+            if (ogTitle && ogTitle.getAttribute("content") && ogTitle.getAttribute("content").trim().length > 0) {
+                results.og_title = { ...results.og_title, type: "completed", desc: "OG title present." };
+            } else {
+                results.og_title = { ...results.og_title, type: "active", desc: "Missing or empty meta[property=\"og:title\"]." };
+            }
+
+            if (ogDesc && ogDesc.getAttribute("content") && ogDesc.getAttribute("content").trim().length > 0) {
+                results.og_description = { ...results.og_description, type: "completed", desc: "OG description present." };
+            } else {
+                results.og_description = { ...results.og_description, type: "active", desc: "Missing or empty meta[property=\"og:description\"]." };
+            }
+
+            if (ogImage && ogImage.getAttribute("content") && ogImage.getAttribute("content").trim().length > 0) {
+                results.og_image = { ...results.og_image, type: "completed", desc: "OG image present." };
+            } else {
+                results.og_image = { ...results.og_image, type: "active", desc: "Missing or empty meta[property=\"og:image\"]." };
+            }
+
+            // 8. JSON-LD Schema
+            const ld = head ? head.querySelector('script[type="application/ld+json"]') : null;
+            if (ld && ld.textContent && ld.textContent.trim().length > 0) {
+                try {
+                    JSON.parse(ld.textContent);
+                    results.schema = { ...results.schema, type: "completed", desc: "Valid JSON-LD schema found." };
+                } catch (err) {
+                    results.schema = { ...results.schema, type: "active", desc: "Found JSON-LD but it's invalid JSON." };
+                }
+            } else {
+                results.schema = { ...results.schema, type: "active", desc: "Missing JSON-LD <script type=\"application/ld+json\">." };
+            }
+
+            // 9. Robots meta
+            const robots = head ? head.querySelector('meta[name="robots"]') : null;
+            if (robots && robots.getAttribute("content")) {
+                const content = robots.getAttribute("content").toLowerCase();
+                if (content.includes("noindex")) {
+                    results.robots = { ...results.robots, type: "active", desc: "Robots set to noindex (page will not be indexed)." };
+                } else {
+                    results.robots = { ...results.robots, type: "completed", desc: `Robots meta present: ${robots.getAttribute("content")}` };
+                }
+            } else {
+                results.robots = { ...results.robots, type: "pending", desc: "No robots meta tag found. Default crawling rules apply." };
             }
 
             // Persistence: earlier checks already updated h1/meta/alt states.

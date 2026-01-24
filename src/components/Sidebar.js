@@ -1,6 +1,7 @@
 "use client";
 import { Lightbulb } from "lucide-react";
 import RuleList from "./RuleList";
+import PreviewPane from "./previews/PreviewPane";
 import { useSEO } from "../app/SEOContext";
 import { useLessons } from "../app/LessonContext";
 
@@ -49,8 +50,11 @@ export default function Sidebar() {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto custom-scrollbar p-4">
-        <RuleList rules={lessonRules} />
+      <div className="flex-1 overflow-y-auto custom-scrollbar">
+        <PreviewPane />
+        <div className="p-4">
+          <RuleList rules={lessonRules} />
+        </div>
       </div>
 
       <div className="p-4 border-t border-gray-200 dark:border-gray-800">

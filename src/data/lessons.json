@@ -16,8 +16,8 @@
         "title": "Mastering Meta Descriptions",
         "description": "Meta descriptions are the 'sales pitch' for your page in search results. Let's add one to your head section.",
         "requiredRules": [
-            "h1",
-            "meta"
+            "meta",
+            "title"
         ],
         "completionMode": "strict",
         "order": 2,
@@ -29,9 +29,8 @@
         "title": "Visual SEO: Image Alts",
         "description": "Search engines can't 'see' images yet. Using alt text helps them understand your visuals and improves accessibility.",
         "requiredRules": [
-            "h1",
-            "meta",
-            "alt"
+            "alt",
+            "viewport"
         ],
         "completionMode": "threshold",
         "completionThreshold": 100,

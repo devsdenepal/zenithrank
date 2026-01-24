@@ -1,6 +1,6 @@
 "use client";
 import { Lightbulb } from "lucide-react";
-import RuleCard from "./RuleCard";
+import RuleList from "./RuleList";
 import { useSEO } from "../app/SEOContext";
 import { useLessons } from "../app/LessonContext";
 
@@ -49,8 +49,8 @@ export default function Sidebar() {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-3">
-        {lessonRules.map((rule) => <RuleCard key={rule.id} {...rule} />)}
+      <div className="flex-1 overflow-y-auto custom-scrollbar p-4">
+        <RuleList rules={lessonRules} />
       </div>
 
       <div className="p-4 border-t border-gray-200 dark:border-gray-800">

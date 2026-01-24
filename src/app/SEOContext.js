@@ -10,7 +10,6 @@ const INITIAL_HTML = `<!DOCTYPE html>
     <title>EcoGarden | Sustainable Living Supplies</title>
 </head>
 <body>
-    <h1>Welcome to EcoGarden</h1>
     <p>Discover sustainable solutions for your urban oasis.</p>
     <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800" alt="Lush Garden">
     <button>Shop Now</button>
@@ -23,9 +22,10 @@ export const SEOProvider = ({ children }) => {
     const [validationResults, setValidationResults] = useState({
         h1: { title: "H1 Tag", desc: "Exactly one <h1> must exist in the body.", type: "pending" },
         meta: { title: "Meta Description", desc: "A non-empty meta description must exist in the <head>.", type: "pending" },
+        title: { title: "Title Tag", desc: "A concise <title> element should exist in the <head>.", type: "pending" },
         alt: { title: "Alt Text", desc: "All <img> tags must have descriptive alt attributes.", type: "pending" },
-        canonical: { title: "Canonical URL", desc: "Not checked yet.", type: "pending" },
-        mobile: { title: "Mobile Friendly", desc: "Viewport meta tag validation.", type: "pending" },
+        canonical: { title: "Canonical URL", desc: "A <link rel=\"canonical\"> should point to the preferred URL.", type: "pending" },
+        viewport: { title: "Viewport Meta", desc: "A viewport meta tag is required for mobile friendliness.", type: "pending" },
     });
 
     const validate = useCallback((content) => {
@@ -73,8 +73,33 @@ export const SEOProvider = ({ children }) => {
                 }
             }
 
-            // Persistence: If any of the above were completed and are no longer valid, they revert to active/pending via logic above.
-            // Canonical & Mobile remain pending as per current scope.
+            // 4. Title tag (head)
+            const titleTag = head ? head.querySelector("title") : null;
+            const titleText = titleTag ? titleTag.textContent : null;
+            if (titleTag && titleText && titleText.trim().length > 0) {
+                results.title = { ...results.title, type: "completed", desc: "Title is present and non-empty." };
+            } else {
+                results.title = { ...results.title, type: "active", desc: "Missing or empty <title> element in <head>." };
+            }
+
+            // 5. Canonical link
+            const canonicalLink = head ? head.querySelector('link[rel="canonical"]') : null;
+            const canonicalHref = canonicalLink ? canonicalLink.getAttribute("href") : null;
+            if (canonicalLink && canonicalHref && canonicalHref.trim().length > 0) {
+                results.canonical = { ...results.canonical, type: "completed", desc: "Canonical link found." };
+            } else {
+                results.canonical = { ...results.canonical, type: "active", desc: "Missing or empty canonical <link> in <head>." };
+            }
+
+            // 6. Viewport
+            const viewportMeta = head ? head.querySelector('meta[name="viewport"]') : null;
+            if (viewportMeta) {
+                results.viewport = { ...results.viewport, type: "completed", desc: "Viewport meta tag present." };
+            } else {
+                results.viewport = { ...results.viewport, type: "active", desc: "Missing <meta name=\"viewport\"> for mobile support." };
+            }
+
+            // Persistence: earlier checks already updated h1/meta/alt states.
 
             return results;
         });

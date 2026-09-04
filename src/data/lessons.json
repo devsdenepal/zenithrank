@@ -1,80 +1,178 @@
 [
     {
         "id": "lesson-1",
-        "title": "The Power of the H1",
-        "description": "Learn why every page needs exactly one primary heading for search engines to understand your content hierarchy.",
-        "requiredRules": [
-            "h1"
-        ],
+        "title": "Document Foundations",
+        "description": "Every page needs a language declaration and characacter encoding so browsers and search engines interpret it correctly.",
+        "requiredRules": ["lang", "charset"],
         "completionMode": "strict",
         "order": 1,
         "nextLessonId": "lesson-2",
-        "initialHtml": "<!DOCTYPE html>\n<html>\n<body>\n  <!-- Add your H1 tag here -->\n</body>\n</html>"
+        "initialHtml": "<!DOCTYPE html>\n<html>\n<head>\n  <title>EcoGarden | Home</title>\n</head>\n<body>\n  <h1>Welcome to EcoGarden</h1>\n  <p>Your sustainable gardening store.</p>\n</body>\n</html>"
     },
     {
         "id": "lesson-2",
-        "title": "Mastering Meta Descriptions",
-        "description": "Meta descriptions are the 'sales pitch' for your page in search results. Let's add one to your head section.",
-        "requiredRules": [
-            "meta",
-            "title"
-        ],
+        "title": "The Power of the H1",
+        "description": "Learn why every page needs exactly one primary heading for search engines to understand your content hierarchy.",
+        "requiredRules": ["h1"],
         "completionMode": "strict",
         "order": 2,
         "nextLessonId": "lesson-3",
-        "initialHtml": "<!DOCTYPE html>\n<html>\n<head>\n  <title>EcoGarden | Pure Life</title>\n</head>\n<body>\n  <h1>Welcome to EcoGarden</h1>\n</body>\n</html>"
+        "initialHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>EcoGarden | About</title>\n</head>\n<body>\n  <p>Welcome to our story.</p>\n</body>\n</html>"
     },
     {
         "id": "lesson-3",
-        "title": "Visual SEO: Image Alts",
-        "description": "Search engines can't 'see' images yet. Using alt text helps them understand your visuals and improves accessibility.",
-        "requiredRules": [
-            "alt",
-            "viewport"
-        ],
-        "completionMode": "threshold",
-        "completionThreshold": 100,
+        "title": "Crafting Compelling Titles",
+        "description": "The title tag is your page's headline in search results. Learn to keep it descriptive and within the ideal length range.",
+        "requiredRules": ["title", "title_length"],
+        "completionMode": "strict",
         "order": 3,
-        "nextLessonId": null,
-        "initialHtml": "<!DOCTYPE html>\n<html>\n<head>\n  <title>EcoGarden</title>\n  <meta name=\"description\" content=\"Organic gardening supplies for urban dwellers.\">\n</head>\n<body>\n  <h1>EcoGarden Shop</h1>\n  <img src=\"https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400\" />\n</body>\n</html>"
-    }
-    ,
+        "nextLessonId": "lesson-4",
+        "initialHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>EcoGarden - The Best Sustainable Gardening Supplies and Tools, Organic Soil, Compost Bin Kits, Watering Systems and More For Every Gardener Who Loves to Grow at Home</title>\n</head>\n<body>\n  <p>Long title, short lesson.</p>\n</body>\n</html>"
+    },
     {
         "id": "lesson-4",
-        "title": "Social Cards: Open Graph",
-        "description": "Add Open Graph tags so social platforms generate rich previews.",
-        "requiredRules": [
-            "og_title",
-            "og_description",
-            "og_image"
-        ],
+        "title": "Mastering Meta Descriptions",
+        "description": "Meta descriptions are the 'sales pitch' for your page in search results. Write one that is 50–160 characters.",
+        "requiredRules": ["meta", "meta_length"],
         "completionMode": "strict",
         "order": 4,
         "nextLessonId": "lesson-5",
-        "initialHtml": "<!DOCTYPE html>\n<html>\n<head>\n  <title>EcoGarden</title>\n  <meta name=\"description\" content=\"Organic gardening supplies.\">\n</head>\n<body>\n  <h1>EcoGarden</h1>\n</body>\n</html>"
+        "initialHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>EcoGarden | Composting</title>\n</head>\n<body>\n  <h1>Composting Guide</h1>\n  <p>Turn kitchen scraps into garden gold.</p>\n</body>\n</html>"
     },
     {
         "id": "lesson-5",
-        "title": "Structured Data: JSON-LD",
-        "description": "Add schema.org JSON-LD so search engines can understand your content better.",
-        "requiredRules": [
-            "schema"
-        ],
+        "title": "Structuring with Headings",
+        "description": "Headings outline your page. Fix the hierarchy so it flows logically from h1 to h2 to h3 without skipping levels.",
+        "requiredRules": ["headings"],
         "completionMode": "strict",
         "order": 5,
         "nextLessonId": "lesson-6",
-        "initialHtml": "<!DOCTYPE html>\n<html>\n<head>\n  <title>EcoGarden</title>\n</head>\n<body>\n  <h1>EcoGarden</h1>\n</body>\n</html>"
+        "initialHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>EcoGarden | Workshops</title>\n</head>\n<body>\n  <h1>Workshops</h1>\n  <h3>Beginner Soil</h3>\n  <p>Learn the basics of soil health.</p>\n</body>\n</html>"
     },
     {
         "id": "lesson-6",
-        "title": "Robots & Indexing",
-        "description": "Control crawling and indexing with the robots meta tag.",
-        "requiredRules": [
-            "robots"
-        ],
+        "title": "Mobile-First Viewport",
+        "description": "A viewport meta tag ensures your page renders correctly on phones and tablets.",
+        "requiredRules": ["viewport"],
         "completionMode": "strict",
         "order": 6,
+        "nextLessonId": "lesson-7",
+        "initialHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>EcoGarden</title>\n</head>\n<body>\n  <h1>Grow with Us</h1>\n</body>\n</html>"
+    },
+    {
+        "id": "lesson-7",
+        "title": "Visual SEO: Image Alts",
+        "description": "Search engines can't 'see' images yet. Using alt text helps them understand your visuals and improves accessibility.",
+        "requiredRules": ["alt"],
+        "completionMode": "strict",
+        "order": 7,
+        "nextLessonId": "lesson-8",
+        "initialHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>EcoGarden | Photos</title>\n</head>\n<body>\n  <h1>Garden Photos</h1>\n  <img src=\"https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400\" />\n</body>\n</html>"
+    },
+    {
+        "id": "lesson-8",
+        "title": "Fast Images: Dimensions & Lazy Loading",
+        "description": "Declaring width/height avoids layout shift, and lazy loading saves bandwidth for below-the-fold images.",
+        "requiredRules": ["img_dimensions", "img_lazy"],
+        "completionMode": "strict",
+        "order": 8,
+        "nextLessonId": "lesson-9",
+        "initialHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>EcoGarden | Products</title>\n</head>\n<body>\n  <h1>Product Images</h1>\n  <img src=\"https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400\" alt=\"Herb seed bundle\">\n</body>\n</html>"
+    },
+    {
+        "id": "lesson-9",
+        "title": "Internal Linking Done Right",
+        "description": "Link between your own pages with descriptive anchor text. 'click here' is bad for SEO and accessibility.",
+        "requiredRules": ["internal_link", "descriptive_links"],
+        "completionMode": "strict",
+        "order": 9,
+        "nextLessonId": "lesson-10",
+        "initialHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>EcoGarden | Blog</title>\n</head>\n<body>\n  <h1>Blog</h1>\n  <p>Read the latest about sustainable living. <a href=\"https://www.example.com\">Read more</a></p>\n</body>\n</html>"
+    },
+    {
+        "id": "lesson-10",
+        "title": "Adding a Favicon",
+        "description": "A favicon brands your browser tab and bookmarks. Add a link to your site's icon.",
+        "requiredRules": ["favicon"],
+        "completionMode": "strict",
+        "order": 10,
+        "nextLessonId": "lesson-11",
+        "initialHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>EcoGarden</title>\n</head>\n<body>\n  <h1>EcoGarden</h1>\n</body>\n</html>"
+    },
+    {
+        "id": "lesson-11",
+        "title": "Canonical Links",
+        "description": "Duplicate content confuses search engines. A canonical link tells them which URL is the preferred version.",
+        "requiredRules": ["canonical"],
+        "completionMode": "strict",
+        "order": 11,
+        "nextLessonId": "lesson-12",
+        "initialHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>EcoGarden | Products</title>\n</head>\n<body>\n  <h1>Products</h1>\n</body>\n</html>"
+    },
+    {
+        "id": "lesson-12",
+        "title": "Robots & Indexing",
+        "description": "Control crawling and indexing with the robots meta tag.",
+        "requiredRules": ["robots"],
+        "completionMode": "strict",
+        "order": 12,
+        "nextLessonId": "lesson-13",
+        "initialHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>EcoGarden | Resources</title>\n  <meta name=\"description\" content=\"Free resources for sustainable gardeners.\">\n</head>\n<body>\n  <h1>Resources</h1>\n</body>\n</html>"
+    },
+    {
+        "id": "lesson-13",
+        "title": "Structured Data: JSON-LD",
+        "description": "Add schema.org JSON-LD so search engines can understand your content better.",
+        "requiredRules": ["schema"],
+        "completionMode": "strict",
+        "order": 13,
+        "nextLessonId": "lesson-14",
+        "initialHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>EcoGarden | Local Store</title>\n</head>\n<body>\n  <h1>Our Store</h1>\n  <p>Find us in Kathmandu.</p>\n</body>\n</html>"
+    },
+    {
+        "id": "lesson-14",
+        "title": "Social Cards: Open Graph",
+        "description": "Add Open Graph tags so social platforms generate rich previews.",
+        "requiredRules": ["og_title", "og_description", "og_image"],
+        "completionMode": "strict",
+        "order": 14,
+        "nextLessonId": "lesson-15",
+        "initialHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>EcoGarden | Seed Library</title>\n</head>\n<body>\n  <h1>Seed Library</h1>\n</body>\n</html>"
+    },
+    {
+        "id": "lesson-15",
+        "title": "Open Graph: Complete the Card",
+        "description": "og:url, og:type, og:locale and og:site_name complete your social preview so platforms know exactly how to render it.",
+        "requiredRules": ["og_url", "og_type", "og_locale", "og_site_name"],
+        "completionMode": "strict",
+        "order": 15,
+        "nextLessonId": "lesson-16",
+        "initialHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>EcoGarden | Gift Shop</title>\n  <meta property=\"og:title\" content=\"EcoGarden Gift Shop\">\n  <meta property=\"og:description\" content=\"Sustainable gifts for plant lovers.\">\n  <meta property=\"og:image\" content=\"https://ecogarden.example.com/gift.jpg\">\n</head>\n<body>\n  <h1>Gift Shop</h1>\n</body>\n</html>"
+    },
+    {
+        "id": "lesson-16",
+        "title": "Twitter Cards",
+        "description": "Give your page a rich preview on Twitter/X with twitter:card, title, description and image tags.",
+        "requiredRules": ["twitter"],
+        "completionMode": "strict",
+        "order": 16,
+        "nextLessonId": "lesson-17",
+        "initialHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>EcoGarden | Community</title>\n</head>\n<body>\n  <h1>Community</h1>\n</body>\n</html>"
+    },
+    {
+        "id": "lesson-17",
+        "title": "The Complete On-Page Audit",
+        "description": "The final challenge: apply every single SEO rule you have learned to this page. No shortcuts, no missing tags — this is the real deal.",
+        "requiredRules": [
+            "lang", "charset", "title", "title_length", "meta", "meta_length",
+            "h1", "headings", "viewport", "alt", "img_dimensions", "img_lazy",
+            "internal_link", "descriptive_links", "favicon", "canonical",
+            "robots", "schema", "og_title", "og_description", "og_image",
+            "og_url", "og_type", "og_locale", "og_site_name", "twitter"
+        ],
+        "completionMode": "strict",
+        "order": 17,
         "nextLessonId": null,
-        "initialHtml": "<!DOCTYPE html>\n<html>\n<head>\n  <title>EcoGarden</title>\n</head>\n<body>\n  <h1>EcoGarden</h1>\n</body>\n</html>"
+        "initialHtml": "<!DOCTYPE html>\n<html>\n<head>\n  <title>EcoGarden</title>\n  <meta name=\"description\" content=\"EcoGarden is your sustainable gardening store.\">\n</head>\n<body>\n  <h1>EcoGarden</h1>\n  <img src=\"https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800\" alt=\"Lush garden\">\n  <a href=\"/about\">About EcoGarden</a>\n</body>\n</html>"
     }
 ]

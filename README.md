@@ -15,12 +15,23 @@ An interactive, hands-on **SEO learning sandbox** built with Next.js. Instead of
 
 | # | Lesson | What you practice |
 | - | ------ | ----------------- |
-| 1 | The Power of the H1 | A single `<h1>` in the body |
-| 2 | Mastering Meta Descriptions | Meta description + title tag |
-| 3 | Visual SEO: Image Alts | `alt` attributes + viewport |
-| 4 | Social Cards: Open Graph | `og:title`, `og:description`, `og:image` |
-| 5 | Structured Data: JSON-LD | Valid `application/ld+json` schema |
-| 6 | Robots & Indexing | `robots` meta directives |
+| 1 | Document Foundations | `<html lang>` + `<meta charset>` |
+| 2 | The Power of the H1 | A single `<h1>` in the body |
+| 3 | Crafting Compelling Titles | `<title>` tag + ideal length (15–70 chars) |
+| 4 | Mastering Meta Descriptions | Meta description + length (50–160 chars) |
+| 5 | Structuring with Headings | Logical h1 → h2 → h3 hierarchy |
+| 6 | Mobile-First Viewport | `<meta name="viewport">` |
+| 7 | Visual SEO: Image Alts | `alt` attributes on all images |
+| 8 | Fast Images: Dimensions & Lazy Loading | width/height + `loading="lazy"` |
+| 9 | Internal Linking Done Right | Internal links + descriptive anchor text |
+| 10 | Adding a Favicon | `<link rel="icon">` |
+| 11 | Canonical Links | `<link rel="canonical">` |
+| 12 | Robots & Indexing | `robots` meta directives |
+| 13 | Structured Data: JSON-LD | Valid `application/ld+json` schema |
+| 14 | Social Cards: Open Graph | `og:title`, `og:description`, `og:image` |
+| 15 | Open Graph: Complete the Card | `og:url`, `og:type`, `og:locale`, `og:site_name` |
+| 16 | Twitter Cards | `twitter:card`, title, description, image |
+| 17 | The Complete On-Page Audit | Capstone: all 26 SEO rules on one page |
 
 ## Getting Started
 
